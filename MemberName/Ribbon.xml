@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns" visible="false" />
+      <tab id="TabMembers" label="Member">
+        <group id="Member" label="Member">
+          <button id="Commons" label="Commons" onAction="OnActionCallback"/>
+          <button id="Lords" label="Lords" onAction="OnActionCallback"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

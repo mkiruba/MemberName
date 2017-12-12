@@ -16,10 +16,16 @@ namespace MemberName
     {
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
+            
         }
 
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)
         {
+        }
+
+        protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        {
+            return new Ribbon();
         }
 
         #region VSTO Designer generated code

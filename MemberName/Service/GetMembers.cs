@@ -1,34 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
 using System.Net.Http;
 using System.Diagnostics;
+using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MemberName.Service
 {
     public class GetMembers
     {
         string uri = "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons%7CIsEligible=true/";
-        public async void GetMembersAsync()
+        public void GetMembersAsync()
         {
             try
             {
-                HttpClient client = new HttpClient();
-                HttpResponseMessage response = await client.GetAsync(uri);
-
-                var result = response.Content;
-                // return URI of the created resource.
+                Task<string> task;
+                using (var client = new HttpClient())
+                {
+                    var result = client.GetAsync(uri).Result;
+                    result.EnsureSuccessStatusCode();
+                    task = result.Content.ReadAsStringAsync();                    
+                }
+                task.Wait();
+                try
+                {
+                    var xDocument = XDocument.Parse(task.Result);
+                    LoadMembers(xDocument);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.ToString());
+                    throw;
+                }
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.ToString());
                 throw;
+            }                    
+        }
+
+        private void LoadMembers(XDocument xDocument)
+        {
+            List<MemberNameBO> members = new List<MemberNameBO>();
+            foreach (var member in xDocument.Descendants("Member"))
+            {
+                members.Add(new MemberNameBO
+                {
+                    MemberName = member.Element("DisplayAs").Value,
+                    Constituency = member.Element("MemberFrom").Value,
+                    Party = member.Element("Party").Value,
+                });
             }
-           
-           
         }
     }
 }
