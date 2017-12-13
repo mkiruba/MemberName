@@ -10,7 +10,7 @@ namespace MemberName.Service
     public class GetMembers
     {
         string uri = "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons%7CIsEligible=true/";
-        public void GetMembersAsync()
+        public List<MemberNameBO> GetMembersAsync()
         {
             try
             {
@@ -25,7 +25,7 @@ namespace MemberName.Service
                 try
                 {
                     var xDocument = XDocument.Parse(task.Result);
-                    LoadMembers(xDocument);
+                    return LoadMembers(xDocument);
                 }
                 catch (Exception e)
                 {
@@ -40,7 +40,7 @@ namespace MemberName.Service
             }                    
         }
 
-        private void LoadMembers(XDocument xDocument)
+        private List<MemberNameBO> LoadMembers(XDocument xDocument)
         {
             List<MemberNameBO> members = new List<MemberNameBO>();
             foreach (var member in xDocument.Descendants("Member"))
@@ -52,6 +52,7 @@ namespace MemberName.Service
                     Party = member.Element("Party").Value,
                 });
             }
+            return members;
         }
     }
 }

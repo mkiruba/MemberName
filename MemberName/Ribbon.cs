@@ -61,6 +61,8 @@ namespace MemberName
             Window window = new Window
             {
                 Title = "Insert Members",
+                Height = 200,
+                Width = 400,
                 Content = new MemberControl()
             };
 
