@@ -58,14 +58,15 @@ namespace MemberName
         }
         public void OnActionCallback(Office.IRibbonControl control)
         {
-            ShowMemberDialog();
+            var adapter = new AddinAdapter.AddinAdapter();
+            adapter.ShowMemberDialog();
         }
 
-        private static void ShowMemberDialog()
-        {
-            MemberControl memberControl = new MemberControl();
-            var result = memberControl.ShowDialog();
-        }
+        //private static void ShowMemberDialog()
+        //{
+        //    MemberControl memberControl = new MemberControl();
+        //    var result = memberControl.ShowDialog();
+        //}
         #endregion
 
         #region Helpers

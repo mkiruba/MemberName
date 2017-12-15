@@ -1,11 +1,15 @@
-﻿namespace MemberName
+﻿using System.Runtime.InteropServices;
+using Microsoft.Office.Interop.Word;
+
+namespace MemberName
 {
+   // [ComVisible(true)]
     public partial class ThisDocument
     {
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
             var application = Globals.ThisDocument.Application;
-            //application.KeyBindings.Add(WdKeyCategory.wdKeyCategoryCommand, "InsertSignOff ", application.BuildKeyCode(WdKey.wdKeyControl, WdKey.wdKeyM));
+            application.KeyBindings.Add(WdKeyCategory.wdKeyCategoryCommand, "InsertMember", application.BuildKeyCode(WdKey.wdKeyControl, WdKey.wdKeyM));
         }
 
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)
