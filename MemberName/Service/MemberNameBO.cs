@@ -8,6 +8,7 @@ namespace MemberName.Service
 {
     public class MemberNameBO
     {
+        public int MemberId { get; set; }
         public string MemberName { get; set; }        
         public string Party { get; set; }
         public string Constituency { get; set; }

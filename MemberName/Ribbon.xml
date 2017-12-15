@@ -5,8 +5,7 @@
       <tab idMso="TabAddIns" visible="false" />
       <tab id="TabMembers" label="Member">
         <group id="Member" label="Member">
-          <button id="Commons" label="Commons" onAction="OnActionCallback"/>
-          <button id="Lords" label="Lords" onAction="OnActionCallback"/>
+          <button id="InsertMember" label="Insert Member" size="large" imageMso="MailMergeSelectRecipients" onAction="OnActionCallback"/>
         </group>
       </tab>
     </tabs>

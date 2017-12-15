@@ -47,6 +47,7 @@ namespace MemberName.Service
             {
                 members.Add(new MemberNameBO
                 {
+                    MemberId = int.Parse(member.Attribute("Member_Id").Value),
                     MemberName = member.Element("DisplayAs").Value,
                     Constituency = member.Element("MemberFrom").Value,
                     Party = member.Element("Party").Value,

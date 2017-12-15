@@ -137,6 +137,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MemberName.docx" />
+    <Compile Include="Frontend\ContributionType.cs" />
+    <Compile Include="Frontend\EnumBooleanConverter.cs" />
     <Compile Include="Frontend\MemberControl.xaml.cs">
       <DependentUpon>MemberControl.xaml</DependentUpon>
     </Compile>

@@ -58,24 +58,13 @@ namespace MemberName
         }
         public void OnActionCallback(Office.IRibbonControl control)
         {
-            Window window = new Window
-            {
-                Title = "Insert Members",
-                Height = 200,
-                Width = 400,
-                Content = new MemberControl()
-            };
+            ShowMemberDialog();
+        }
 
-            window.ShowDialog();
-            GetMembers getMembers = new GetMembers();
-            getMembers.GetMembersAsync();
-            //if (control.Id == "checkBox1")
-            //{
-
-            //}
-            //else
-            //{
-            //}
+        private static void ShowMemberDialog()
+        {
+            MemberControl memberControl = new MemberControl();
+            var result = memberControl.ShowDialog();
         }
         #endregion
 

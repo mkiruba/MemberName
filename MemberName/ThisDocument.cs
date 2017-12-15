@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Microsoft.Office.Tools.Word;
-using Microsoft.VisualStudio.Tools.Applications.Runtime;
-using Office = Microsoft.Office.Core;
-using Word = Microsoft.Office.Interop.Word;
-
-namespace MemberName
+﻿namespace MemberName
 {
     public partial class ThisDocument
     {
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
-            
+            var application = Globals.ThisDocument.Application;
+            //application.KeyBindings.Add(WdKeyCategory.wdKeyCategoryCommand, "InsertSignOff ", application.BuildKeyCode(WdKey.wdKeyControl, WdKey.wdKeyM));
         }
 
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)
