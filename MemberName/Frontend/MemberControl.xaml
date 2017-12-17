@@ -43,7 +43,9 @@
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Height="50" Content="Enter Member Name"></Label>
         <ComboBox Grid.Column="1" Grid.Row="0" Height="30" IsEditable="True" 
-                  VerticalAlignment="Center" Margin="0,0,10,0"
+                  FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}"
+                  KeyboardNavigation.TabIndex="0"
+            VerticalAlignment="Center" Margin="0,0,10,0"
                   Text="{Binding MemberSearchText, Delay=500, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Members}"
                   DisplayMemberPath="MemberName"
@@ -54,9 +56,19 @@
                   Controls:TextBoxHelper.ClearTextButton="True"
                   IsDropDownOpen="{Binding IsOpened}"></ComboBox>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="1" Margin="10">
-            <RadioButton Content="Question" Margin="0,5,0,5" IsChecked="{Binding SelectedContributionType, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static local:ContributionType.Question}}" GroupName="ContributionGroup"/>
-            <RadioButton Content="Answer"  Margin="0,5,0,5" IsChecked="{Binding SelectedContributionType, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static local:ContributionType.Answer}}" GroupName="ContributionGroup"/>
+            <RadioButton Margin="0,5,0,5" KeyboardNavigation.TabIndex="1"
+                         IsChecked="{Binding SelectedContributionType, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static local:ContributionType.Question}}" GroupName="ContributionGroup">
+                <AccessText>_Question</AccessText>
+            </RadioButton>
+            <RadioButton Margin="0,5,0,5" KeyboardNavigation.TabIndex="2"
+                         IsChecked="{Binding SelectedContributionType, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static local:ContributionType.Answer}}" GroupName="ContributionGroup">
+                <AccessText>_Answer</AccessText>
+            </RadioButton>
         </StackPanel>
-        <Button Margin="10" Grid.ColumnSpan="2" Grid.Row="2" Width="100" Height="30" Content="Insert" Command="{Binding InsertMemberCommand}" CommandParameter="{Binding ElementName=MemberWindow}"/>
+        <Button KeyboardNavigation.TabIndex="3" Margin="10" Grid.ColumnSpan="2" Grid.Row="2" Width="100" Height="30" 
+                Command="{Binding InsertMemberCommand}" 
+                CommandParameter="{Binding ElementName=MemberWindow}">
+            <AccessText>_Insert</AccessText>
+        </Button>
     </Grid>
 </Controls:MetroWindow>
