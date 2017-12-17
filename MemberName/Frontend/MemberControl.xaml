@@ -47,7 +47,7 @@
                   Text="{Binding MemberSearchText, Delay=500, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Members}"
                   DisplayMemberPath="MemberName"
-                  SelectedItem="{Binding SelectedMember}"
+                  SelectedItem="{Binding SelectedMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   IsSynchronizedWithCurrentItem="False"
                   Controls:TextBoxHelper.AutoWatermark="True"
                   Controls:TextBoxHelper.Watermark="Search by Member's Name or Constituency"

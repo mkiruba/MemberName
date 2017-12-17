@@ -81,7 +81,24 @@ namespace MemberName.Frontend
                   () =>
                   {
                       context = SynchronizationContext.Current ?? new SynchronizationContext();
+                      SetDefaults();
                   }));
+
+        private void SetDefaults()
+        {
+            var document = Globals.ThisDocument;
+            var bookmarks = document.Application.Selection.Bookmarks;
+            if (bookmarks.Count > 0)
+            {
+                var ccs = bookmarks[1].Range.ContentControls;
+                if (ccs.Count > 0)
+                {
+                    var memberId = int.Parse(ccs[1].Tag);
+                    SelectMember(memberId);
+                    SelectedContributionType = (ContributionType)Enum.Parse(typeof(ContributionType), ccs[1].Title);
+                }
+            }
+        }
 
         private Task InsertMember(Window window)
         {
@@ -153,6 +170,12 @@ namespace MemberName.Frontend
                 Members.AddRange(allMembers.Where(s => s.Constituency.ToLower().Contains(searchText.ToLower())).ToList());
                 IsOpened = Members.Any();
             }); 
+        }
+
+        private void SelectMember(int memberId)
+        {
+            Members = getMembers.GetMembersAsync();
+            SelectedMember = Members.Where(s => s.MemberId == memberId).FirstOrDefault();
         }
     }
 }
