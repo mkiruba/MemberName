@@ -17,3 +17,14 @@ e)	Once the user selects a Member the Member’s name and contribution type shou
 f)	The first time a Member contributes to a debate their name should be followed by their constituency and party in brackets (e.g. “Member Name (Constituency) (Party)”); otherwise just the Member’s name should show.
 
 g)	If the picker is triggered while the cursor is on a Member’s name, then it should default to show the corresponding Member name and contribution type and update that Member’s name accordingly.
+
+#Installation
+
+Please go to [release](https://github.com/mkiruba/MemberName/releases) folder and download and extract the Release.zip.
+
+Open the MemberName.docm file.
+If you see the yellow bar in the Word with "SECURITY WARNING Macros have been disabled.". Click enable content.(This is needed to enable the addin.)
+
+Once you enable the addin a new tab "Member" appears.
+
+#Acceptance Tests
