@@ -46,9 +46,11 @@ Once you enable the addin a new tab "Member" appears.
 - [x] Initial load does not have any members, but as soon user types in the members are populated based on the match with name and constituency.
 ![Alt text](images/gifs/memberselect.gif?raw=true "ButtonClick")
 - [x] When Question is inserted then selecting member next time it will default to answer. Users are allowed to change this behaviour.
-
+![Alt text](images/gifs/Answerdefault.gif?raw=true "ButtonClick")
 - [x] Member and the contribution types are entered at the cursor location.
 
 - [x] First time the member is inserted as "Member Name (Constituency) (Party): " and then onwards "Member Name: "
+![Alt text](images/gifs/shortname.gif?raw=true "ButtonClick")
 
 - [x] If insert member is triggered with cursor in the member name control, the insert member defaults to the selected member.
+![Alt text](images/gifs/getselection.gif?raw=true "ButtonClick")
