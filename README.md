@@ -18,13 +18,33 @@ f)	The first time a Member contributes to a debate their name should be followed
 
 g)	If the picker is triggered while the cursor is on a Member’s name, then it should default to show the corresponding Member name and contribution type and update that Member’s name accordingly.
 
-#Installation
+## Installation
 
 Please go to [release](https://github.com/mkiruba/MemberName/releases) folder and download and extract the Release.zip.
+
+![Alt text](images/fileexplorer.png?raw=true "FileExplorer")
 
 Open the MemberName.docm file.
 If you see the yellow bar in the Word with "SECURITY WARNING Macros have been disabled.". Click enable content.(This is needed to enable the addin.)
 
+![Alt text](images/warning.png?raw=true "Warning")
+
 Once you enable the addin a new tab "Member" appears.
 
-#Acceptance Tests
+![Alt text](images/tab.png?raw=true "Tab")
+
+## Acceptance Tests
+
+- [x] Ticker should be triggered by clicking an icon and via keyboard shortcut(ctrl + m).
+
+- [x] Pressing Alt key highlights shortcut keys and the tab order is sequenced.
+
+- [x] Initial load does not have any members, but as soon user types in the members are populated based on the match with name and constituency.
+
+- [x] When Question is inserted then selecting member next time it will default to answer. Users are allowed to change this behaviour.
+
+- [x] Member and the contribution types are entered at the cursor location.
+
+- [x] First time the member is inserted as "Member Name (Constituency) (Party): " and then onwards "Member Name: "
+
+- [x] If insert member is triggered with cursor in the member name control, the insert member defaults to the selected member.
