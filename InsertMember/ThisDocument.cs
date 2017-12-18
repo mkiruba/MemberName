@@ -1,16 +1,17 @@
 ﻿using System.Runtime.InteropServices;
-using Microsoft.Office.Interop.Word;
+using Office = Microsoft.Office.Core;
+using Word = Microsoft.Office.Interop.Word;
 
-namespace MemberName
+namespace InsertMember
 {
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
-    public partial class ThisDocument : IDocument
+    public partial class ThisDocument
     {
         private void ThisDocument_Startup(object sender, System.EventArgs e)
         {
             var application = Globals.ThisDocument.Application;
-            application.KeyBindings.Add(WdKeyCategory.wdKeyCategoryCommand, "InsertMember", application.BuildKeyCode(WdKey.wdKeyControl, WdKey.wdKeyM));
+            application.KeyBindings.Add(Word.WdKeyCategory.wdKeyCategoryCommand, "InsertMember", application.BuildKeyCode(Word.WdKey.wdKeyControl, Word.WdKey.wdKeyM));
         }
 
         private void ThisDocument_Shutdown(object sender, System.EventArgs e)
@@ -20,11 +21,10 @@ namespace MemberName
         {
             return this;
         }
-        protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        public string ShowMemberDialog()
         {
-            return new Ribbon();
+            return "Hello";
         }
-
         #region VSTO Designer generated code
 
         /// <summary>
@@ -38,11 +38,5 @@ namespace MemberName
         }
 
         #endregion
-
-        public void ShowMemberDialog()
-        {
-            var adapter = new AddinAdapter.AddinAdapter();
-            adapter.ShowMemberDialog();
-        }
     }
 }

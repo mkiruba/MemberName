@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using MemberName.Frontend;
+﻿using MemberName.Frontend;
 
 namespace MemberName.AddinAdapter
 {
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.None)]
-    public class AddinAdapter : IAddInAdapter
+    public class AddinAdapter
     {
         public void ShowMemberDialog()
         {

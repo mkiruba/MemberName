@@ -1,9 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace MemberName.AddinAdapter
+namespace MemberName
 {
     [ComVisible(true)]
-    public interface IAddInAdapter
+    public interface IDocument
     {
         void ShowMemberDialog();
     }

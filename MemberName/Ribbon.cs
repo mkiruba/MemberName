@@ -1,33 +1,8 @@
-﻿using MemberName.Frontend;
-using MemberName.Service;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows;
 using Office = Microsoft.Office.Core;
-
-// TODO:  Follow these steps to enable the Ribbon (XML) item:
-
-// 1: Copy the following code block into the ThisAddin, ThisWorkbook, or ThisDocument class.
-
-//  protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
-//  {
-//      return new Ribbon();
-//  }
-
-// 2. Create callback methods in the "Ribbon Callbacks" region of this class to handle user
-//    actions, such as clicking a button. Note: if you have exported this Ribbon from the Ribbon designer,
-//    move your code from the event handlers to the callback methods and modify the code to work with the
-//    Ribbon extensibility (RibbonX) programming model.
-
-// 3. Assign attributes to the control tags in the Ribbon XML file to identify the appropriate callback methods in your code.  
-
-// For more information, see the Ribbon XML documentation in the Visual Studio Tools for Office Help.
-
 
 namespace MemberName
 {
@@ -55,18 +30,14 @@ namespace MemberName
         public void Ribbon_Load(Office.IRibbonUI ribbonUI)
         {
             this.ribbon = ribbonUI;
+            ribbonUI.ActivateTab("TabMembers");
         }
         public void OnActionCallback(Office.IRibbonControl control)
         {
             var adapter = new AddinAdapter.AddinAdapter();
             adapter.ShowMemberDialog();
         }
-
-        //private static void ShowMemberDialog()
-        //{
-        //    MemberControl memberControl = new MemberControl();
-        //    var result = memberControl.ShowDialog();
-        //}
+        
         #endregion
 
         #region Helpers
