@@ -36,11 +36,15 @@ Once you enable the addin a new tab "Member" appears.
 ## Acceptance Tests
 
 - [x] Ticker should be triggered by clicking an icon and via keyboard shortcut(ctrl + m).
+![Alt text](images/gifs/ButtonClick.gif?raw=true "ButtonClick")
+
+![Alt text](images/gifs/shortcut.gif?raw=true "ButtonClick")
 
 - [x] Pressing Alt key highlights shortcut keys and the tab order is sequenced.
+![Alt text](images/gifs/keyboard.gif?raw=true "ButtonClick")
 
 - [x] Initial load does not have any members, but as soon user types in the members are populated based on the match with name and constituency.
-
+![Alt text](images/gifs/memberselect.gif?raw=true "ButtonClick")
 - [x] When Question is inserted then selecting member next time it will default to answer. Users are allowed to change this behaviour.
 
 - [x] Member and the contribution types are entered at the cursor location.
