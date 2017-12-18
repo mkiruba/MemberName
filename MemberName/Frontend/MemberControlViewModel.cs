@@ -106,7 +106,19 @@ namespace MemberName.Frontend
             {
                 var document = Globals.ThisDocument;
                 var name = Guid.NewGuid().ToString();
-               
+                //check if it is new paragraph to insert member
+                var bookmarks = document.Application.Selection.Bookmarks;
+                if (bookmarks.Count > 0 && bookmarks[1].Range.ContentControls.Count > 0)
+                {
+                    bookmarks[1].Range.ContentControls[1].Delete(true);
+                }
+
+                var para = document.Application.Selection.Paragraphs[1].Range;
+                if (para.Bookmarks.Count > 0)
+                {
+                    document.Application.Selection.TypeParagraph();
+                }
+                
                 var contentControl = document.Controls.AddRichTextContentControl(document.Application.Selection.Range, name);
                 
                 contentControl.Text = HasMember() ? 
